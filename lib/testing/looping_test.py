@@ -20,6 +20,7 @@ class TestHappyNewYear:
         answer_list = answer.split('\n')
         #second to last value should be the HNY string
         assert answer_list[-2] == "Happy New Year!", "Your final line does not match 'Happy New Year!', check spelling/capitalization!"
+        assert len(answer_list) == 12, "Extra output found after 'Happy New Year!'"
         digit_strings = [str(i) for i in range(1,11)]
         remaining_digits = [i for i in digit_strings if i not in answer_list] 
         assert remaining_digits == [], f"You didn't print all digits 1-10, missing {', '.join(remaining_digits)}"
@@ -56,3 +57,19 @@ class TestFizzBuzz:
         
         i = i - 1
         assert i == 100, f"Only looped {i} times, should have looped 100 times. Check your loop condition!"    
+
+def fizzbuzz():
+    # Iterate through numbers from 1 to 100
+    for i in range(1, 101):
+        # Check for FizzBuzz condition first
+        if i % 3 == 0 and i % 5 == 0:
+            print("FizzBuzz")
+        # Check for Fizz condition
+        elif i % 3 == 0:
+            print("Fizz")
+        # Check for Buzz condition
+        elif i % 5 == 0:
+            print("Buzz")
+        # If none of the conditions are met, print the number itself
+        else:
+            print(i)
